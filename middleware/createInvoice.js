@@ -16,18 +16,29 @@ module.exports = async (req, res, next) => {
         return { sum: a.amount + b.amount };
     });
 
+    logger.info('totalAmount: ' + totalAmount.sum);
+
     try {
         // Create contents of Invoice
         const pdfDocument = pdfInvoice({
             company: {
                 name: req.body.company.name,
-                address: req.body.company.address,
+                address1: req.body.company.address1,
+                address2: req.body.company.address2,
+                town: req.body.company.town,
+                county: req.body.company.county,
+                postcode: req.body.company.postcode,
                 email: req.body.company.email,
                 phone: req.body.company.phone
             },
             customer: {
                 name: req.body.customer.name,
-                email: req.body.customer.email
+                email: req.body.customer.email,
+                address1: req.body.customer.address1,
+                address2: req.body.customer.address2,
+                town: req.body.customer.town,
+                county: req.body.customer.county,
+                postcode: req.body.customer.postcode
             },
             items: req.body.items,
             total: totalAmount.sum
