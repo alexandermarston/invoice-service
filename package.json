@@ -4,6 +4,8 @@
   "description": "An API to create customisable invoices",
   "main": "index.js",
   "dependencies": {
+    "@bugsnag/js": "^6.3.2",
+    "@bugsnag/plugin-express": "^6.3.0",
     "aws-sdk": "^2.395.0",
     "body-parser": "^1.18.2",
     "boom": "^7.1.1",
